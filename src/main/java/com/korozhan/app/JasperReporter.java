@@ -51,9 +51,9 @@ public class JasperReporter {
     }
 
     public static void main(String[] args) {
-        generateReport("insurance/goods.jasper",
-                "insurance/goods.json",
-                Arrays.asList("insurance/goods_subreport1", "insurance/goods_subreport2","insurance/goods_subreport3"),
+        generateReport("sample/goods.jasper",
+                "sample/goods.json",
+                Arrays.asList("sample/goods_subreport1", "sample/goods_subreport2","sample/goods_subreport3"),
                 "goods.pdf");
     }
 }
