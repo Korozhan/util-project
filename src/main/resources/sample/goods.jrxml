@@ -57,21 +57,21 @@
 			<subreport>
 				<reportElement x="0" y="1" width="555" height="20" isPrintWhenDetailOverflows="true" uuid="c8251ce1-5de4-476f-a4cc-89717d422cc7"/>
 				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JsonDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("header")]]></dataSourceExpression>
-				<subreportExpression><![CDATA[$P{insurance/goods_subreport1}]]></subreportExpression>
+				<subreportExpression><![CDATA[$P{sample/goods_subreport1}]]></subreportExpression>
 			</subreport>
 		</band>
 		<band height="20">
 			<subreport>
 				<reportElement x="0" y="0" width="555" height="20" isPrintWhenDetailOverflows="true" uuid="a4a075c8-4d44-4f5c-9c3f-5fc44bf47c37"/>
 				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JsonDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("description")]]></dataSourceExpression>
-				<subreportExpression><![CDATA[$P{insurance/goods_subreport2}]]></subreportExpression>
+				<subreportExpression><![CDATA[$P{sample/goods_subreport2}]]></subreportExpression>
 			</subreport>
 		</band>
 		<band height="20">
 			<subreport>
 				<reportElement x="0" y="0" width="555" height="20" isPrintWhenDetailOverflows="true" uuid="c7753c6b-d3e6-4955-97b1-3a31b2f6713f"/>
 				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JsonDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("conditions")]]></dataSourceExpression>
-				<subreportExpression><![CDATA[$P{insurance/goods_subreport3}]]></subreportExpression>
+				<subreportExpression><![CDATA[$P{sample/goods_subreport3}]]></subreportExpression>
 			</subreport>
 		</band>
 	</detail>
