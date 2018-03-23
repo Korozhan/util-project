@@ -1,4 +1,4 @@
-package com.korozhan.app;
+package com.korozhan.app.util;
 
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeConstants;

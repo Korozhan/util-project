@@ -1,4 +1,4 @@
-package com.korozhan.app;
+package com.korozhan.app.util;
 
 import com.github.napp.kaptcha.Kaptcha;
 

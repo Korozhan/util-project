@@ -1,4 +1,4 @@
-package com.korozhan.app;
+package com.korozhan.app.util;
 
 import com.jcraft.jsch.*;
 import org.apache.commons.io.IOUtils;
