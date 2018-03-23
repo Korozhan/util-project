@@ -28,6 +28,13 @@
     </dependency>
 
     <dependency>
+      <groupId>com.github.napp-com</groupId>
+      <artifactId>kaptcha</artifactId>
+      <version>1.0.0</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
       <groupId>net.sf.jasperreports</groupId>
       <artifactId>jasperreports</artifactId>
       <version>6.4.1</version>
