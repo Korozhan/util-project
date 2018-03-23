@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.korozhan.app</groupId>
   <artifactId>util-project</artifactId>
@@ -50,6 +50,12 @@
       <groupId>com.github.LeshaRB</groupId>
       <artifactId>jasperOwnFonts</artifactId>
       <version>0.2.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.jcraft</groupId>
+      <artifactId>jsch</artifactId>
+      <version>0.1.54</version>
     </dependency>
 
   </dependencies>
