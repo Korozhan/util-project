@@ -1,5 +1,6 @@
 package com.korozhan.app.util;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.text.StrSubstitutor;
 
@@ -47,11 +48,21 @@ public class FileUtil {
         return dir.delete();
     }
 
+    private static String deleteLineBreaks(String str) {
+        return str.replace("\r\n", "");
+    }
+
     public static InputStream getReportName(String fileName) {
         return FileUtil.class.getClassLoader().getResourceAsStream(fileName);
     }
 
     public static File getReportFile(String fileName) {
         return new File(FileUtil.class.getClassLoader().getResource(fileName).getFile());
+    }
+
+    public static void main(String[] args) throws IOException {
+        File lineBreaksFile = getReportFile("lineBreaksData.txt");
+        String str = FileUtils.readFileToString(lineBreaksFile, StandardCharsets.UTF_8);
+        System.out.println(deleteLineBreaks(str));
     }
 }
