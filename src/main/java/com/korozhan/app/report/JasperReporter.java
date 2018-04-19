@@ -1,7 +1,8 @@
-package com.korozhan.app.util;
+package com.korozhan.app.report;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.korozhan.app.document.DocumentCard;
+import com.korozhan.app.util.FileUtil;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -77,10 +78,10 @@ public class JasperReporter {
     }
 
     public static void main(String[] args) {
-        generateReport("sample/goods.jasper",
-                FileUtil.getReportName("sample/goods.json"),
-                Arrays.asList("sample/goods_subreport1", "sample/goods_subreport2", "sample/goods_subreport3"),
-                "goods.pdf");
+//        generateReport("sample/goods.jasper",
+//                FileUtil.getReportName("sample/goods.json"),
+//                Arrays.asList("sample/goods_subreport1", "sample/goods_subreport2", "sample/goods_subreport3"),
+//                "goods.pdf");
 
         System.out.println(fillJsonAndGenerateReport("sample/goods.jasper",
                 FileUtil.getReportName("sample/goods.json"),

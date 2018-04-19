@@ -198,4 +198,8 @@ public class DateConverter {
                 TimeUnit.MILLISECONDS.toMinutes(nanos) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(nanos)),
                 TimeUnit.MILLISECONDS.toSeconds(nanos) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(nanos)));
     }
+
+    public static String dateToString(Date date, String format) {
+        return new SimpleDateFormat(format).format(date);
+    }
 }
