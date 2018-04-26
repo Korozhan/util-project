@@ -6,6 +6,11 @@ import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
@@ -21,7 +26,10 @@ public class DateConverter {
     public static final String DATE_FORMAT = "dd-M-yyyy hh:mm:ss a";
     public static final String DATE_FORMAT_GREGORIAN = "dd-M-yyyy hh:mm:ss a";
     public static final String DATE_FORMAT_DEFAULT = "MM/dd/yyyy HH:mm:ss";
+    public static final String DD_MM_YYYY_FORMAT_DEFAULT = "yyyy-MM-dd HH:mm:ss";
     public static final String TIME_PATTERN = "%02d %02d:%02d:%02d";
+
+    public static final String DEFAULT_TIMEZONE = "Europe/Minsk";
 
     final SimpleDateFormat format = new SimpleDateFormat(DATE_FORMAT_GREGORIAN);
     final SimpleDateFormat sfd = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
@@ -54,6 +62,24 @@ public class DateConverter {
         System.out.println("Date (New York) (String) : " + sDateInAmerica);
         System.out.println("Date (New York) (Object) : " + formatter.format(dateInAmerica));
 
+    }
+
+    public static void main(String[] args) throws ParseException {
+        System.out.println(getZonedDateFromStringDate("2018-05-01 00:00:00", DD_MM_YYYY_FORMAT_DEFAULT, DEFAULT_TIMEZONE));
+        System.out.println(stringDateToDateZoned("2018-05-01 00:00:00", DD_MM_YYYY_FORMAT_DEFAULT, DEFAULT_TIMEZONE));
+    }
+
+    private static Date getZonedDateFromStringDate(String stringDate, String format, String timeZoneId) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format);
+        LocalDateTime localtDateAndTime = LocalDateTime.parse(stringDate, formatter);
+
+        ZonedDateTime dateAndTimeInSydney = ZonedDateTime.of(localtDateAndTime, ZoneId.of(timeZoneId));
+        System.out.println("Current date and time in a particular timezone : " + dateAndTimeInSydney);
+
+        ZonedDateTime utcDate = dateAndTimeInSydney.withZoneSameInstant(ZoneOffset.UTC);
+        System.out.println("Current date and time in UTC : " + utcDate);
+
+        return Date.from(dateAndTimeInSydney.toInstant());
     }
 
     /**
@@ -155,6 +181,19 @@ public class DateConverter {
         }
         return null;
     }
+
+
+    private static Date stringDateToDateZoned(String dateInString, String dateFormat, String timeZoneId) {
+        SimpleDateFormat formatter = new SimpleDateFormat(dateFormat);
+        formatter.setTimeZone(TimeZone.getTimeZone(timeZoneId));
+        try {
+            return formatter.parse(dateInString);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
     /**
      * Converts {@link Date} into {@link XMLGregorianCalendar}
